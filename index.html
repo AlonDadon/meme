@@ -9,11 +9,11 @@
     <title>Meme date</title>
 </head>
 
-<body>
+<body onload="init()">
 
-    <header class="main-header">
-        <div class="header-container main-container flex align-center spcae-between">
-            <div class="logo">memegen</div>
+    <header class=" main-header">
+        <div class="header-container main-container flex align-center space-between">
+            <div class="logo"><img src="images/LOGO/LOGO.png" alt=""></div>
             <ul class="navbar-conntainer clean-ul flex">
                 <li><a href="" class="flex align-center capitalize nav-item">Gallery</a></li>
                 <!-- ask - not find in design pic  -->
@@ -24,10 +24,12 @@
         </div>
     </header>
 
-    <section class="search-bar flex spcae-between align-center">
-        <div class="search-container flex align-center spcae-around">
-            <input type="search" placeholder="search">
-            <ul class="clean-ul flex keyword-container spcae-between" >
+    <section class="search-bar">
+        <div class="search-container flex align-center space-around">
+            <div class="form-search">
+                <input class="form-search" type="search" placeholder="search">
+            </div>
+            <ul class="clean-ul flex keyword-container space-between">
                 <li><a href="" class="flex align-center capitalize keyword-item">funny</a></li>
                 <li><a href="" class="flex align-center capitalize keyword-item">Comics</a></li>
                 <li><a href="" class="flex align-center capitalize keyword-item">Dogs</a></li>
@@ -38,27 +40,41 @@
             <div>
     </section>
 
-<!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
-    <main class="meme flex direction-column">
 
+    <main class="meme flex direction-column align-center ">
         <section class="frist-panel gallery">
-            <div class="grid-container">
-                <article class="img-item" ><img src="images/mimi-pic/1.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item"><img src="images/mimi-pic/2.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item" ><img src="images/mimi-pic/3.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item" ><img src="images/mimi-pic/4.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item" ><img src="images/mimi-pic/5.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item" ><img src="images/mimi-pic/6.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item" ><img src="images/mimi-pic/7.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item" ><img src="images/mimi-pic/8.jpg" alt="image 1" class="grid-item box"></article>
+            <div class="grid-container ">
+                <!-- <article class="img-item"><img src="images/meme-pic/1.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item"><img src="images/meme-pic/2.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/3.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/4.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/5.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/6.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/7.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/8.jpg" alt="image 1" class="grid-item box">
+                </article>
+                <article class="img-item"><img src="images/meme-pic/9.jpg" alt="image 1" class="grid-item box">
+                </article> -->
             </div>
         </section>
 
-        <section class="second-panel user-editor">
-            <div class="btn-container-header">
+
+        <section class="second-panel user-editor flex space">
+            <!-- canvas -->
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="550" width="550"></canvas>
+            </div>
+
+            <div class="btn-container flex direction-column space-between ">
                 <!-- header-btn -->
-                <div class="btn-container-header">
-                    <button>Add new text line </button>
+                <div class="btn-container-header ">
+                    <input class="meme-text" id="line" type=text name="line" placeholder="text" onkeyup="onSetText()">
                     <button>Delete</button>
                     <button>Text move up</button>
                     <button>Text move down</button>
@@ -79,19 +95,18 @@
                     <button>Share</button>
                 </div>
             </div>
-            <!-- canvas -->
-            <div class="canvas-container">
-                <canvas id="my-canvas" height="450" width="450"></canvas>
-            </div>
+
         </section>
     </main>
 
     <footer class="footer">
+        <div>memegen</div>
     </footer>
 
 
-    <!-- <script src="js/utils.js"></script> -->
-    <!-- <script src="js/meme-service.js"></script> -->
+    <script src="js/storage-service.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
 </body>
 

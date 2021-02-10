@@ -5,20 +5,29 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(227,227,227);
     margin: 0;
+    text-align: center;
+   
 }
 
 
 img {
     width: 100%;
+cursor: pointer;
 }
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
-
+button {
+    cursor: pointer;
+}
+input {
+    cursor: pointer;
+}
 
 /* COMPONENTS */
 
@@ -26,21 +35,23 @@ a {
 
 .main-header {
     height: 66px;
-    width: 100%;
+  width: 100%px;
     /* box-shadow: inset 0 -6px 0 #1e1e1e; */
     background-color:#ff7f00
 }
 
 .header-container {
     height: 100%;
-    width: 90%;
+    /* width: 1100px */
 }
 
 .main-header .logo {
+    width: 12%;
     color: #ffffff;
     cursor: pointer;
     font-size: 2.5rem;
     text-shadow: 0 1px 0 #1e1e1e;
+    padding-left: 4%;
     /* --------- */
     /* fix font family */
     /* font-family:; */
@@ -93,14 +104,27 @@ background-color: white;
 width: 100%;
 }
 
+.form-search {
+width:40%;
+height:50%;
+justify-self: center;
+margin-right: 10%;
+/* padding-left: 5%; */
+
+}
+
+
 .keyword-container {
+    width: 60%;
     height: 100%;
-width: 727px;
+    /* padding-right: 10%; */
+    margin-right:10%;
   
 }
 
 .keyword-item {
     height: 100%;
+    margin-right:3rem;
 }
 
 /* gallery grid */
@@ -108,18 +132,64 @@ width: 727px;
 .frist-panel {
 /* display: none; */
 width: 100%;
+background-color: rgb(227,227,227);
+margin: 0;
+padding-left: 3.125rem;
+padding-top: 1.25rem;
+padding-right:3.125rem;
 }
 
 .grid-container {
     display:grid;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-auto-rows: 1fr;
-    grid-auto-flow: dense;
-    gap: 1.25rem;
+    /* grid-auto-flow: dense; */
+    row-gap:  1.25rem;
+    column-gap:  1.25rem;
 }
 
 
+
+/* second-panel */
+.second-panel {
+   padding-top: 10px;
+    width: 100%;
+    height: 37.5rem
+}
+
+/* canvas */
+
+.canvas-container{
+    /* background-color: rgb(227,227,227); */
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+    padding-right: 10px;
+}
+canvas{
+    display: block;
+    margin: 0 auto;
+    border: 2px solid rgb(0, 0, 0);
+    background-color:goldenrod
+}
+
+
+/* btn */
+
+.btn-container{
+    padding-left: 10px;
+    width:50%;
+    height: 100%;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+/* footer */
+
+footer {
+    width:100%;
+    height:206px;
+    background-color:#ff7f00
+}
 
 
 
@@ -142,7 +212,7 @@ width: 100%;
 .flex.align-center {
     align-items: center;
 }
-.flex.spcae-between {
+.flex.space-between {
     justify-content: space-between;
 }
 .flex.spcae-around {

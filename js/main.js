@@ -1,18 +1,17 @@
 'use strict'
 
-var gKeywords = { 'happy': 12, 'funny puk': 1 }
-var gImgs = [{ id: 1, url: 'img/popo.jpg', keywords: ['happy'] }];
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    
-    
-    lines: [
-        {
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }
-    ]
+function init() {
+    renderImages();
+
+}
+
+function renderImages() {
+    let images = getImages()
+    console.log(images)
+let strHtml = images.map((image)=>{
+return `
+<article class="img-item"><img src="images/meme-pic/${image.id}.jpg" alt="image${image.id}" class="grid-item box"></article>
+`
+})
+document.querySelector('.grid-container').innerHTML = strHtml.join('')
 }
