@@ -1,18 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="styles/main.css"> 
-    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Meme date</title>
 </head>
+
 <body>
 
+    <header class="main-header">
+        <div class="header-container main-container flex align-center spcae-between">
+            <div class="logo">memegen</div>
+            <ul class="navbar-conntainer clean-ul flex">
+                <li><a href="" class="flex align-center capitalize nav-item">Gallery</a></li>
+                <!-- ask - not find in design pic  -->
+                <!-- <li><a href="" class="flex align-center capitalize nav-item">Memes</a></li> -->
+                <li><a href="" class="flex align-center capitalize nav-item">About </a></li>
+            </ul>
+            <!-- <button class="menu-btn" onclick="toggleMenu()">☰</button> -->
+        </div>
+    </header>
+
+    <section class="search-bar flex spcae-between align-center">
+        <div class="search-container flex align-center spcae-around">
+            <input type="search" placeholder="search">
+            <ul class="clean-ul flex keyword-container spcae-between" >
+                <li><a href="" class="flex align-center capitalize keyword-item">funny</a></li>
+                <li><a href="" class="flex align-center capitalize keyword-item">Comics</a></li>
+                <li><a href="" class="flex align-center capitalize keyword-item">Dogs</a></li>
+                <li><a href="" class="flex align-center capitalize keyword-item">Drink</a></li>
+                <li><a href="" class="flex align-center capitalize keyword-item">Books</a></li>
+                <li><a href="" class="flex align-center capitalize keyword-item">more...</a></li>
+            </ul>
+            <div>
+    </section>
+
+<!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+    <main class="meme flex direction-column">
+
+        <section class="frist-panel gallery">
+            <div class="grid-container">
+                <article class="img-item" ><img src="images/mimi-pic/1.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item"><img src="images/mimi-pic/2.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item" ><img src="images/mimi-pic/3.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item" ><img src="images/mimi-pic/4.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item" ><img src="images/mimi-pic/5.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item" ><img src="images/mimi-pic/6.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item" ><img src="images/mimi-pic/7.jpg" alt="image 1" class="grid-item box"></article>
+                <article class="img-item" ><img src="images/mimi-pic/8.jpg" alt="image 1" class="grid-item box"></article>
+            </div>
+        </section>
+
+        <section class="second-panel user-editor">
+            <div class="btn-container-header">
+                <!-- header-btn -->
+                <div class="btn-container-header">
+                    <button>Add new text line </button>
+                    <button>Delete</button>
+                    <button>Text move up</button>
+                    <button>Text move down</button>
+                    <button>chenge up to down</button>
+                </div>
+                <!-- design-btn  -->
+                <div class="btn-container-main">
+                    <input type="color" value="#ffffff" onchange="onSetColor(value)">
+                </div>
+                <!-- sticker-btn -->
+                <div class="btn-container-sticker">
+
+                    <button>Sticker</button>
+                </div>
+                <!-- footer-btn -->
+                <div class="btn-container-footer flex "> >
+                    <button>Download</button>
+                    <button>Share</button>
+                </div>
+            </div>
+            <!-- canvas -->
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="450" width="450"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+    </footer>
 
 
-
-
-<script src="js/main.js"></script>
+    <!-- <script src="js/utils.js"></script> -->
+    <!-- <script src="js/meme-service.js"></script> -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>

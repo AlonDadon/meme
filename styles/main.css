@@ -1,7 +1,153 @@
+
+/*Basics */
 *{
     box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(16, 167, 255);
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* COMPONENTS */
+
+/*Header components */
+
+.main-header {
+    height: 66px;
+    width: 100%;
+    /* box-shadow: inset 0 -6px 0 #1e1e1e; */
+    background-color:#ff7f00
+}
+
+.header-container {
+    height: 100%;
+    width: 90%;
+}
+
+.main-header .logo {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    text-shadow: 0 1px 0 #1e1e1e;
+    /* --------- */
+    /* fix font family */
+    /* font-family:; */
+    
+}
+
+.main-header .navbar-conntainer > * {
+    width: 11.875rem;
+    height: 4.375rem;
+    /* box-shadow: inset -1px 0 0 #1d1d1d; */
+}
+
+.main-header .navbar-conntainer > *:hover {
+    transition: background-color 0.3s;
+    box-shadow: inset 0 -6px 0 #58c93a;
+    color: #58c93a;
+}
+
+.nav-item {
+    height: 100%;
+    justify-content: center;
+}
+
+.navbar-conntainer .nav-item {
+    font-family: lato-bold;
+    color: #ffffff;
+    font-size: 1rem;
+    text-shadow: 0 1px 0 #1e1e1e;
+}
+
+.navbar-conntainer .nav-item:active {
+    color: #000000;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* search-bar */
+
+.search-bar{
+    height: 100px;
+    width: 100%;
+background-color: white;
+}
+
+.search-container{
+    height:100%;
+/* width: 730px; */
+width: 100%;
+}
+
+.keyword-container {
+    height: 100%;
+width: 727px;
+  
+}
+
+.keyword-item {
+    height: 100%;
+}
+
+/* gallery grid */
+
+.frist-panel {
+/* display: none; */
+width: 100%;
+}
+
+.grid-container {
+    display:grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense;
+    gap: 1.25rem;
+}
+
+
+
+
+
+/* HELPERS */
+.hidden {
+    display: none;
+}
+.clean-ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+/* FLEX HELPERS */
+.flex {
+    display: flex;
+}
+.flex.align-center {
+    align-items: center;
+}
+.flex.spcae-between {
+    justify-content: space-between;
+}
+.flex.spcae-around {
+    justify-content: space-around;
+}
+.flex.direction-column{
+    flex-direction: column;
 }
