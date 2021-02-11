@@ -1,8 +1,5 @@
 'use strict'
 
-var gNextId = 1
-var gNextImage = 1
-
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
     { id: 1, url: 'images/meme-pic/1.jpg', keywords: ['happy'] },
@@ -21,13 +18,12 @@ var gImgs = [
     { id: 14, url: 'images/meme-pic/14.jpg', keywords: ['happy'] },
     { id: 15, url: 'images/meme-pic/15.jpg', keywords: ['happy'] },
     { id: 16, url: 'images/meme-pic/16.jpg', keywords: ['happy'] },
-    { id: 17, url: 'images/meme-pic/16.jpg', keywords: ['happy'] },
-    { id: 18, url: 'images/meme-pic/16.jpg', keywords: ['happy'] },
+    { id: 17, url: 'images/meme-pic/17.jpg', keywords: ['happy'] },
+    { id: 18, url: 'images/meme-pic/18.jpg', keywords: ['happy'] },
 ];
 
-
 var gMeme = {
-selectedImgId: 5,
+    selectedImageId: 5,
     selectedLineIdx: 0,
     lines: [
         {
@@ -35,21 +31,37 @@ selectedImgId: 5,
             size: 20,
             align: 'left',
             color: 'red'
+        },
+        {
+            txt: 'Milion $',
+            size: 20,
+            align: 'left',
+            color: 'red'
         }
     ]
-
 }
-
 
 
 function getImages() {
-return gImgs
+    return gImgs
+}
+function getGMeme() {
+    return gMeme
 }
 
-function getImgById(imageId){
-let image = gImgs.find(image=>{
-    return image.id === imageId
-})
-return image;
+function getImgById(imageId) {
+    let image = gImgs.find(image => {
+        return image.id === imageId
+    })
+    return image;
 }
+
+function saveSelectedImage(imageId) {
+    gMeme.selectedImageId = imageId
+}
+function saveUserText(topText, bottomText) {
+    gMeme.lines[0].txt = topText
+    gMeme.lines[1].txt = bottomText
+}
+
 

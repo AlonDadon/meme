@@ -16,8 +16,6 @@
             <div class="logo"><img src="images/LOGO/LOGO.png" alt=""></div>
             <ul class="navbar-conntainer clean-ul flex">
                 <li><a href="" class="flex align-center capitalize nav-item">Gallery</a></li>
-                <!-- ask - not find in design pic  -->
-                <!-- <li><a href="" class="flex align-center capitalize nav-item">Memes</a></li> -->
                 <li><a href="" class="flex align-center capitalize nav-item">About </a></li>
             </ul>
             <!-- <button class="menu-btn" onclick="toggleMenu()">☰</button> -->
@@ -45,37 +43,32 @@
     <main class="meme flex direction-column align-center ">
 
         <section class="frist-panel gallery">
-            <div class="grid-container ">
-            </div>
+            <div class="grid-container"></div>
         </section>
 
         <section class="second-panel user-editor hidden">
             <div class="second-panel  flex">
-                <!-- canvas -->
-                <div class="canvas-container">
-                    <!-- <canvas id="my-canvas" height="550" width="550"></canvas> -->
+         <div class="canvas-container">
+                    <canvas id="canvas"></canvas>
                 </div>
-
-                <div class="btn-container flex direction-column space-between ">
-                    <!-- header-btn -->
+  <div class="btn-container flex direction-column space-between ">
                     <div class="btn-container-header ">
-                        <input class="meme-text" id="line" type=text name="line" placeholder="text"
-                            onkeyup="onSetText()">
-                        <button>Delete</button>
-                        <button>Text move up</button>
-                        <button>Text move down</button>
-                        <button>chenge up to down</button>
+                        <ul class=" clean-ul">
+                            <li><textarea id="top-text"></textarea></li>
+                            <li><textarea id="bottom-text"></textarea></li>
+                            <li><button>Delete</button></li>
+                            <li><button>Text move up</button></li>
+                            <li><button>Text move down</button></li>
+                            <li><button>chenge up to down</button></li>
+                            <li><button onclick="onGenerate()">ganrate</button></li>
+                        </ul>
                     </div>
-                    <!-- design-btn  -->
-                    <div class="btn-container-main">
+            <div class="btn-container-main">
                         <input type="color" value="#ffffff" onchange="onSetColor(value)">
                     </div>
-                    <!-- sticker-btn -->
                     <div class="btn-container-sticker">
-
                         <button>Sticker</button>
                     </div>
-                    <!-- footer-btn -->
                     <div class="btn-container-footer flex "> >
                         <button>Download</button>
                         <button>Share</button>
@@ -87,6 +80,7 @@
 
     <footer class="footer">
         <div>memegen</div>
+        <small>all rights reserved 2021</small>
     </footer>
 
 
