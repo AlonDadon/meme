@@ -141,7 +141,7 @@ padding-right:3.125rem;
 
 .grid-container {
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 1fr;
     /* grid-auto-flow: dense; */
     row-gap:  1.25rem;
@@ -170,8 +170,9 @@ canvas{
     display: block;
     margin: 0 auto;
     border: 2px solid rgb(0, 0, 0);
-    background-color:goldenrod
+    /* background-color:goldenrod */
 }
+
 
 
 /* btn */
@@ -190,7 +191,6 @@ footer {
     height:206px;
     background-color:#ff7f00
 }
-
 
 
 /* HELPERS */

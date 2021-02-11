@@ -21,6 +21,8 @@ var gImgs = [
     { id: 14, url: 'images/meme-pic/14.jpg', keywords: ['happy'] },
     { id: 15, url: 'images/meme-pic/15.jpg', keywords: ['happy'] },
     { id: 16, url: 'images/meme-pic/16.jpg', keywords: ['happy'] },
+    { id: 17, url: 'images/meme-pic/16.jpg', keywords: ['happy'] },
+    { id: 18, url: 'images/meme-pic/16.jpg', keywords: ['happy'] },
 ];
 
 
@@ -39,6 +41,15 @@ selectedImgId: 5,
 }
 
 
+
 function getImages() {
 return gImgs
 }
+
+function getImgById(imageId){
+let image = gImgs.find(image=>{
+    return image.id === imageId
+})
+return image;
+}
+

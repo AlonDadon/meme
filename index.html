@@ -41,61 +41,47 @@
     </section>
 
 
+
     <main class="meme flex direction-column align-center ">
+
         <section class="frist-panel gallery">
             <div class="grid-container ">
-                <!-- <article class="img-item"><img src="images/meme-pic/1.jpg" alt="image 1" class="grid-item box"></article>
-                <article class="img-item"><img src="images/meme-pic/2.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/3.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/4.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/5.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/6.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/7.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/8.jpg" alt="image 1" class="grid-item box">
-                </article>
-                <article class="img-item"><img src="images/meme-pic/9.jpg" alt="image 1" class="grid-item box">
-                </article> -->
             </div>
         </section>
 
+        <section class="second-panel user-editor hidden">
+            <div class="second-panel  flex">
+                <!-- canvas -->
+                <div class="canvas-container">
+                    <!-- <canvas id="my-canvas" height="550" width="550"></canvas> -->
+                </div>
 
-        <section class="second-panel user-editor flex space">
-            <!-- canvas -->
-            <div class="canvas-container">
-                <canvas id="my-canvas" height="550" width="550"></canvas>
+                <div class="btn-container flex direction-column space-between ">
+                    <!-- header-btn -->
+                    <div class="btn-container-header ">
+                        <input class="meme-text" id="line" type=text name="line" placeholder="text"
+                            onkeyup="onSetText()">
+                        <button>Delete</button>
+                        <button>Text move up</button>
+                        <button>Text move down</button>
+                        <button>chenge up to down</button>
+                    </div>
+                    <!-- design-btn  -->
+                    <div class="btn-container-main">
+                        <input type="color" value="#ffffff" onchange="onSetColor(value)">
+                    </div>
+                    <!-- sticker-btn -->
+                    <div class="btn-container-sticker">
+
+                        <button>Sticker</button>
+                    </div>
+                    <!-- footer-btn -->
+                    <div class="btn-container-footer flex "> >
+                        <button>Download</button>
+                        <button>Share</button>
+                    </div>
+                </div>
             </div>
-
-            <div class="btn-container flex direction-column space-between ">
-                <!-- header-btn -->
-                <div class="btn-container-header ">
-                    <input class="meme-text" id="line" type=text name="line" placeholder="text" onkeyup="onSetText()">
-                    <button>Delete</button>
-                    <button>Text move up</button>
-                    <button>Text move down</button>
-                    <button>chenge up to down</button>
-                </div>
-                <!-- design-btn  -->
-                <div class="btn-container-main">
-                    <input type="color" value="#ffffff" onchange="onSetColor(value)">
-                </div>
-                <!-- sticker-btn -->
-                <div class="btn-container-sticker">
-
-                    <button>Sticker</button>
-                </div>
-                <!-- footer-btn -->
-                <div class="btn-container-footer flex "> >
-                    <button>Download</button>
-                    <button>Share</button>
-                </div>
-            </div>
-
         </section>
     </main>
 
