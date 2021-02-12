@@ -160,6 +160,13 @@ canvas{
     height: 100%;
     border: 2px solid rgb(0, 0, 0);
 }
+
+.btn-icon {
+    width: 50px
+}
+
+
+
 /* footer */
 footer {
     width:100%;

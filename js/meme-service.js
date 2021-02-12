@@ -21,22 +21,23 @@ var gImgs = [
     { id: 17, url: 'images/meme-pic/17.jpg', keywords: ['happy'] },
     { id: 18, url: 'images/meme-pic/18.jpg', keywords: ['happy'] },
 ];
-
 var gMeme = {
     selectedImageId: 5,
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I never eat Falafel',
+            txt: 'I success',
             size: 20,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            moveLine:16,
         },
         {
-            txt: 'Milion $',
+            txt: 'I success',
             size: 20,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            moveLine:16,
         }
     ]
 }
@@ -48,14 +49,12 @@ function getImages() {
 function getGMeme() {
     return gMeme
 }
-
 function getImgById(imageId) {
     let image = gImgs.find(image => {
         return image.id === imageId
     })
     return image;
 }
-
 function saveSelectedImage(imageId) {
     gMeme.selectedImageId = imageId
 }
@@ -64,4 +63,17 @@ function saveUserText(topText, bottomText) {
     gMeme.lines[1].txt = bottomText
 }
 
-
+function ChangeFontSize(diff) {
+    gMeme.lines[0].size += diff
+    console.log(gMeme.lines[0].size)
+    if (gMeme.lines[0].size > 80) gMeme.lines[0].size = 25
+    if( gMeme.lines[0].size < 25) gMeme.lines[0].size = 65
+    drawImage()
+}
+function moveLine(diff){
+    if (gMeme.lines[0].moveLine < 0 ) return gMeme.lines[0].moveLine = 0
+    gMeme.lines[0].moveLine += diff
+    generateMeme()
+    drawImage()
+}
+  

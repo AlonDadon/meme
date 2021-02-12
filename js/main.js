@@ -40,7 +40,8 @@ function renderCanvas() {
     gCtx = gElCanvas.getContext('2d');
 
 }
-function drawImage(imageId) {
+function drawImage() {
+    let imageId = getGMeme().selectedImageId
     image = new Image();
     image.src = `images/meme-pic/${imageId}.jpg`;
     image.onload = () => {
@@ -68,27 +69,38 @@ function generateMeme() {
     let userSelect = getGMeme()
     let topText = userSelect.lines[0].txt
     let bottomText = userSelect.lines[1].txt
+    let moveLine = userSelect.lines[0].moveLine
+
     gCtx.fillStyle = 'white';
-    gCtx.strokeStyle = 'blue';
+    gCtx.strokeStyle = 'black';
     gCtx.textAlign = 'center';
 
-    fontSize = 25;
+    fontSize = userSelect.lines[0].size;
+
     gCtx.font = fontSize + 'px Impact';
     gCtx.lineWidth = fontSize / 20;
     gCtx.textBaseline = 'top';
 
-    gCtx.fillText(topText, gElCanvas.width / 2, 1 * fontSize, gElCanvas.width);
-    gCtx.strokeText(topText, gElCanvas.width / 2, 1 * fontSize, gElCanvas.width);
+    gCtx.fillText(topText, gElCanvas.width / 2, 1 * moveLine, gElCanvas.width);
+    gCtx.strokeText(topText, gElCanvas.width / 2, 1 * moveLine, gElCanvas.width);
 
-    fontSize = 16;
+    fontSize = userSelect.lines[0].size;
     gCtx.font = fontSize + 'px Impact';
     gCtx.lineWidth = fontSize / 20;
 
     gCtx.textBaseline = 'bottom';
-    gCtx.fillText(bottomText, gElCanvas.width / 2, gElCanvas.height - 1 * fontSize, gElCanvas.width);
-    gCtx.strokeText(bottomText, gElCanvas.width / 2, gElCanvas.height - 1 * fontSize, gElCanvas.width);
+    gCtx.fillText(bottomText, gElCanvas.width / 2, gElCanvas.height - 1 * moveLine, gElCanvas.width);
+    gCtx.strokeText(bottomText, gElCanvas.width / 2, gElCanvas.height - 1 * moveLine, gElCanvas.width);
 
 }
 function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function onChangeFontSize(diff) {
+    ChangeFontSize(diff)
+}
+
+function onMoveLine(diff) {
+    moveLine(diff)
 }
