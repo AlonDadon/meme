@@ -57,8 +57,7 @@ function canvasSize(image) {
 function onGenerate() {
     let userSelect = getGMeme()
     let topTextInput = document.getElementById('top-text');
-    let bottomTextInput = document.getElementById('bottom-text');
-    saveUserText(topTextInput.value, bottomTextInput.value)
+    saveUserText(topTextInput.value)
     clearCanvas()
     drawImage(userSelect.selectedImageId)
     generateMeme()
@@ -67,40 +66,76 @@ function onGenerate() {
 function generateMeme() {
     let fontSize;
     let userSelect = getGMeme()
-    let topText = userSelect.lines[0].txt
-    let bottomText = userSelect.lines[1].txt
-    let moveLine = userSelect.lines[0].moveLine
+    let idx = userSelect.selectedLineIdx
+    let moveLine;
+    let text = userSelect.lines[idx].txt
+    let topText;
+    let bottomText;
+    let userColor = userSelect.lines[0].color
+    let textPosX = userSelect.lines[0].txtPosX
+    let strokeText = userSelect.lines[0].strokeTxt
 
-    gCtx.fillStyle = 'white';
-    gCtx.strokeStyle = 'black';
+        if (idx === 0) {
+        topText = text
+        bottomText = userSelect.lines[idx + 1].txt
+    } else {
+        bottomText = text
+        topText = userSelect.lines[idx - 1].txt
+    }
+
     gCtx.textAlign = 'center';
-
-    fontSize = userSelect.lines[0].size;
-
-    gCtx.font = fontSize + 'px Impact';
-    gCtx.lineWidth = fontSize / 20;
-    gCtx.textBaseline = 'top';
-
-    gCtx.fillText(topText, gElCanvas.width / 2, 1 * moveLine, gElCanvas.width);
-    gCtx.strokeText(topText, gElCanvas.width / 2, 1 * moveLine, gElCanvas.width);
-
+    gCtx.fillStyle = userColor;
+    gCtx.strokeStyle = strokeText;
+    moveLine = userSelect.lines[0].moveLine
     fontSize = userSelect.lines[0].size;
     gCtx.font = fontSize + 'px Impact';
     gCtx.lineWidth = fontSize / 20;
+    gCtx.textBaseline = 'top'
+    gCtx.fillText(topText, gElCanvas.width / textPosX, 1 * moveLine, gElCanvas.width);
+    gCtx.strokeText(topText, gElCanvas.width / textPosX, 1 * moveLine, gElCanvas.width);
 
+    strokeText = userSelect.lines[1].strokeTxt
+    gCtx.strokeStyle = strokeText;
+    textPosX = userSelect.lines[1].txtPosX
+    userColor = userSelect.lines[1].color
+    gCtx.fillStyle = userColor;
+    moveLine = userSelect.lines[1].moveLine
+    fontSize = userSelect.lines[1].size;
+    gCtx.font = fontSize + 'px Impact';
+    gCtx.lineWidth = fontSize / 20;
     gCtx.textBaseline = 'bottom';
-    gCtx.fillText(bottomText, gElCanvas.width / 2, gElCanvas.height - 1 * moveLine, gElCanvas.width);
-    gCtx.strokeText(bottomText, gElCanvas.width / 2, gElCanvas.height - 1 * moveLine, gElCanvas.width);
-
+    gCtx.fillText(bottomText, gElCanvas.width /textPosX, gElCanvas.height - 1 * moveLine, gElCanvas.width);
+    gCtx.strokeText(bottomText, gElCanvas.width / textPosX, gElCanvas.height - 1 * moveLine, gElCanvas.width);
 }
+
+
 function clearCanvas() {
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
-
 function onChangeFontSize(diff) {
-    ChangeFontSize(diff)
+    changeFontSize(diff)
 }
-
 function onMoveLine(diff) {
     moveLine(diff)
+}
+function onSwitchLine() {
+    switchLine()
+}
+function onAddLine() {
+    addLine()
+}
+function onDeleteLine() {
+    deleteLine()
+}
+function onDownloadImg(elLink) {
+    downloadImg(elLink)
+}
+function onChangeColor(value) {
+    changeColor(value)
+}
+function onMoveXPos(pos){
+    moveXPos(pos)
+}
+function onStrokeText(value){
+    strokeText(value)
 }

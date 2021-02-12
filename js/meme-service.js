@@ -26,18 +26,22 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I success',
-            size: 20,
+            txtPosX: 2,
+            txt: '',
+            size: 25,
             align: 'left',
-            color: 'red',
-            moveLine:16,
+            color: 'white',
+            moveLine: 16,
+            strokeTxt: 'black',
         },
         {
-            txt: 'I success',
-            size: 20,
+            txtPosX: 2,
+            txt: '',
+            size: 25,
             align: 'left',
             color: 'red',
-            moveLine:16,
+            moveLine: 16,
+            strokeTxt: 'black',
         }
     ]
 }
@@ -58,22 +62,70 @@ function getImgById(imageId) {
 function saveSelectedImage(imageId) {
     gMeme.selectedImageId = imageId
 }
-function saveUserText(topText, bottomText) {
-    gMeme.lines[0].txt = topText
-    gMeme.lines[1].txt = bottomText
+function saveUserText(Text) {
+    let idx = gMeme.selectedLineIdx
+    gMeme.lines[idx].txt = Text
 }
-
-function ChangeFontSize(diff) {
-    gMeme.lines[0].size += diff
-    console.log(gMeme.lines[0].size)
-    if (gMeme.lines[0].size > 80) gMeme.lines[0].size = 25
-    if( gMeme.lines[0].size < 25) gMeme.lines[0].size = 65
+function changeFontSize(diff) {
+    let idx = gMeme.selectedLineIdx
+    gMeme.lines[idx].size += diff
+    if (gMeme.lines[idx].size > 80) gMeme.lines[idx].size = 25
+    if (gMeme.lines[idx].size < 25) gMeme.lines[idx].size = 65
     drawImage()
 }
-function moveLine(diff){
-    if (gMeme.lines[0].moveLine < 0 ) return gMeme.lines[0].moveLine = 0
-    gMeme.lines[0].moveLine += diff
+function moveLine(diff) {
+    let idx = gMeme.selectedLineIdx
+    if (gMeme.lines[idx].moveLine < 0) return gMeme.lines[idx].moveLine = 0
+    if (idx === 0) gMeme.lines[idx].moveLine -= diff
+    else gMeme.lines[idx].moveLine += diff
     generateMeme()
     drawImage()
 }
-  
+function switchLine() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx > gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+}
+function addLine() {
+    let idx = gMeme.selectedLineIdx
+    if (gMeme.lines[idx].txt){
+        switchLine()
+        idx = gMeme.selectedLineIdx
+    } 
+    gMeme.lines[idx].txt = 'Add text'
+    generateMeme()
+    drawImage()
+
+}
+function deleteLine() {
+    let idx = gMeme.selectedLineIdx
+    if (!gMeme.lines[idx].txt) switchLine()
+    gMeme.lines[idx].txt = ''
+    generateMeme()
+    drawImage()
+    switchLine()
+}
+function downloadImg(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'Canvas'
+}
+function changeColor(color) {
+    let idx = gMeme.selectedLineIdx
+    gMeme.lines[idx].color = color
+    generateMeme()
+    drawImage()
+}
+function strokeText(color) {
+    let idx = gMeme.selectedLineIdx
+    gMeme.lines[idx].strokeTxt = color
+    generateMeme()
+    drawImage()
+}
+function moveXPos(pos) {
+    let idx = gMeme.selectedLineIdx
+    if (pos === 'center') gMeme.lines[idx].txtPosX = 2
+    if (pos === 'right') gMeme.lines[idx].txtPosX = 1.2
+    if (pos === 'left') gMeme.lines[idx].txtPosX = 6
+    generateMeme()
+    drawImage()
+}
