@@ -23,7 +23,7 @@ function renderImages() {
 function renderEditor(imageId) {
     saveSelectedImage(imageId)
     document.querySelector('.gallery').classList.add("hidden");
-    document.querySelector('.search-bar').classList.add("hidden");
+    // document.querySelector('.search-bar').classList.add("hidden");
     document.querySelector('.user-editor').classList.add("flex");
     let image = getImgById(imageId);
     var strHtml = `
@@ -54,10 +54,11 @@ function canvasSize(image) {
     gElCanvas.width = image.width;
     gElCanvas.height = image.height;
 }
-function onGenerate() {
+function onGenerate(txt) {
     let userSelect = getGMeme()
-    let topTextInput = document.getElementById('top-text');
-    saveUserText(topTextInput.value)
+    let TextInput = txt
+    console.log(TextInput)
+    saveUserText(TextInput)
     clearCanvas()
     drawImage(userSelect.selectedImageId)
     generateMeme()
@@ -74,8 +75,9 @@ function generateMeme() {
     let userColor = userSelect.lines[0].color
     let textPosX = userSelect.lines[0].txtPosX
     let strokeText = userSelect.lines[0].strokeTxt
+    let fontFamily = userSelect.lines[0].font
 
-        if (idx === 0) {
+    if (idx === 0) {
         topText = text
         bottomText = userSelect.lines[idx + 1].txt
     } else {
@@ -88,12 +90,14 @@ function generateMeme() {
     gCtx.strokeStyle = strokeText;
     moveLine = userSelect.lines[0].moveLine
     fontSize = userSelect.lines[0].size;
-    gCtx.font = fontSize + 'px Impact';
+    gCtx.font = `${fontSize}px ${fontFamily}`
     gCtx.lineWidth = fontSize / 20;
     gCtx.textBaseline = 'top'
     gCtx.fillText(topText, gElCanvas.width / textPosX, 1 * moveLine, gElCanvas.width);
     gCtx.strokeText(topText, gElCanvas.width / textPosX, 1 * moveLine, gElCanvas.width);
 
+
+    fontFamily = userSelect.lines[1].font
     strokeText = userSelect.lines[1].strokeTxt
     gCtx.strokeStyle = strokeText;
     textPosX = userSelect.lines[1].txtPosX
@@ -101,10 +105,10 @@ function generateMeme() {
     gCtx.fillStyle = userColor;
     moveLine = userSelect.lines[1].moveLine
     fontSize = userSelect.lines[1].size;
-    gCtx.font = fontSize + 'px Impact';
+    gCtx.font = `${fontSize}px ${fontFamily}`;
     gCtx.lineWidth = fontSize / 20;
     gCtx.textBaseline = 'bottom';
-    gCtx.fillText(bottomText, gElCanvas.width /textPosX, gElCanvas.height - 1 * moveLine, gElCanvas.width);
+    gCtx.fillText(bottomText, gElCanvas.width / textPosX, gElCanvas.height - 1 * moveLine, gElCanvas.width);
     gCtx.strokeText(bottomText, gElCanvas.width / textPosX, gElCanvas.height - 1 * moveLine, gElCanvas.width);
 }
 
@@ -133,9 +137,12 @@ function onDownloadImg(elLink) {
 function onChangeColor(value) {
     changeColor(value)
 }
-function onMoveXPos(pos){
+function onMoveXPos(pos) {
     moveXPos(pos)
 }
-function onStrokeText(value){
+function onStrokeText(value) {
     strokeText(value)
+}
+function onChangeFont(font) {
+    changeFont(font.value)
 }

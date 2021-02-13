@@ -11,119 +11,115 @@
 
 <body onload="init()">
 
-    <header class=" main-header">
-        <div class="header-container main-container flex align-center space-between">
-            <div href="" class="logo"><img src="images/LOGO/LOGO.png" alt=""></div>
-            <ul class="navbar-conntainer clean-ul flex">
-                <li><a href="" class="flex align-center capitalize nav-item">Gallery</a></li>
-                <li><a href="" class="flex align-center capitalize nav-item">About </a></li>
-            </ul>
-            <!-- <button class="menu-btn" onclick="toggleMenu()">☰</button> -->
+    <header>
+        <div class="main-header">
+            <nav class="flex space-between center">
+                <div class="logo"><img src="images/LOGO/LOGO.png" alt=""></div>
+                <div class="header-container  flex space-between">
+                    <ul class=" ul-container flex space-between clean-ul">
+                        <li><a href="" class=" capitalize nav-item">Gallery</a></li>
+                        <li><a href="" class="flex align-center capitalize nav-item">About </a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <section class="search-bar">
-        <div class="search-container flex align-center space-around">
-            <div class="form-search">
-                <input class="form-search" type="search" placeholder="search">
-            </div>
-            <ul class="clean-ul flex keyword-container space-between">
-                <li><a href="" class="flex align-center capitalize keyword-item">funny</a></li>
-                <li><a href="" class="flex align-center capitalize keyword-item">Comics</a></li>
-                <li><a href="" class="flex align-center capitalize keyword-item">Dogs</a></li>
-                <li><a href="" class="flex align-center capitalize keyword-item">Drink</a></li>
-                <li><a href="" class="flex align-center capitalize keyword-item">Books</a></li>
-                <li><a href="" class="flex align-center capitalize keyword-item">more...</a></li>
-            </ul>
-            <div>
-    </section>
 
 
-
-    <main class="meme flex direction-column align-center ">
+    <main class="main-container flex center">
 
         <section class="frist-panel gallery">
             <div class="grid-container"></div>
         </section>
 
-        <section class="second-panel user-editor hidden">
-            <div class="second-panel  flex">
+        <section class="user-editor  hidden">
+
+            <div class="second-panel flex space-evenly">
                 <div class="canvas-container">
                     <canvas id="canvas"></canvas>
                 </div>
-               
-                <!-- change to grid prjoact -->
-                <div class="btn-container flex direction-column space-between ">    
-                    <div class="btn-container-header ">
-                        <article><button class="btn-icon" onclick=onChangeFontSize(5)><img src="ICONS/increase font - icon.png"></button></article>
-                        <article><button class="btn-icon" onclick=onChangeFontSize(-5)><img src="ICONS/decrease font - icon.png"></button></article>
-                        <article><textarea placeholder="Text" id="top-text"></textarea></article>
-                        <article> <button class="btn-icon" onclick="onMoveLine(1)"><img src="ICONS/move-up.png"></button></article>
-                        <article><button class="btn-icon" onclick="onMoveLine(-1)"><img src="ICONS/move-down.png"></button></article>
-                        <article><button class="btn-icon" onclick="onSwitchLine()"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></button></article>
-                        <article><button class="btn-icon" onclick="onAddLine()"><img src="ICONS/add.png"></button></article>
-                        <article><button class="btn-icon" onclick="onDeleteLine()"><img src="ICONS/trash.png"></button></article>
-                        <article><input class="btn-icon"  type="color" value="#ffffff" onchange="onChangeColor(value)"></article>
-                        <article> <button class="btn-icon" onclick="onMoveXPos('left')"><img src="ICON/align-to-left.png"></button></article> ></button></article>
-                        <article> <button class="btn-icon" onclick="onMoveXPos('center')"><img src="ICONS/center-text-alignment.png""></button></article>
-                        <article> <button class="btn-icon" onclick="onMoveXPos('right')"><img src="ICONS/align-to-right.png"></button></article>
-                        <article><input type="color" value="#ffffff" name="" id="" onchange="onStrokeText(value)" >storke add icon</article>
-                        <!-- add css to btn -->
-                        <article> <a href="#"class="btn" onclick="onDownloadImg(this)" download="my-img.jpg">Download</a></article>
-                        
-                        <article><button onclick="onGenerate()">ganrate</button></article>
-                        <!-- -----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                            good morning continue  here
-                            >>>>>>>>>>>>>>>>>>>>>>>>>>> --> 
-                            
-                            
-                            <!-- <article> <button class="btn-icon" onclick="onStrokeText('right')"><img src="ICONS/text-stroke.png"></button></article> -->
-                        <!-- -----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                                good morning continue  here
-                        >>>>>>>>>>>>>>>>>>>>>>>>>>> -->
 
-                     
-                        
+                <div class="btn-container  flex direction-column space-between ">
+                    <div class="btn-container-header grid">
 
-                        <!-- <input id="top-text" type="text" placeholder="Text" class="input-text" name="text-input" onchange="onChangeTxt()" -->
- <!-- <article> </article> -->
-                        
-      <!-- <input id="top-text" type="text" placeholder="Text" class="input-text" name="text-input" onchange="onChangeTxt()" -->
+                        <article id="input-txt">
+                            <input type="txt" placeholder="Input Text" name="input-txt" id="txt"
+                                onchange="onGenerate(this.value)" oninput="onGenerate(this.value)" />
+                        </article>
+                        <article class="btn-move-up">
+                            <button class="btn-editor" onclick="onMoveLine(1)">
+                                <img src="ICONS/move-up.png"></button>
+                        </article>
+                        <article class="btn-move-down">
+                            <button class="btn-editor" onclick="onMoveLine(-1)">
+                                <img src="ICONS/move-down.png"></button>
+                        </article>
+                        <article class="switch-line">
+                            <button class="btn-editor" onclick="onSwitchLine()">
+                                <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                        </article>
+                        <article class="add-line">
+                            <button class="btn-editor" onclick="onAddLine()">
+                                <img src="ICONS/add.png"></button>
+                        </article>
+                        <article class="delete-line">
+                            <button class="btn-editor" onclick="onDeleteLine()">
+                                <img src="ICONS/trash.png"></button>
+                        </article>
+                        <article class="font-plus">
+                            <button class="btn-editor" onclick=onChangeFontSize(5)>
+                                <img src="ICONS/increase font - icon.png"></button>
+                        </article>
 
+                        <article class="font-minus">
+                            <button class="btn-editor" onclick=onChangeFontSize(-5)>
+                                <img src="ICONS/decrease font - icon.png"></button>
+                        </article>
+                        <article class="move-left">
+                            <button class="btn-editor" onclick="onMoveXPos('left')">
+                                <img src="ICONS/align-to-left.png""></button>
+                        </article></button>
+                        </article>
+                        <article class=" move-center">
+                                <button class="btn-editor" onclick="onMoveXPos('center')">
+                                    <img src="ICONS/center-text-alignment.png""></button>
+                                  </article>
+                                     <article class=" move-right">
+                                    <button class="btn-editor" onclick="onMoveXPos('right')">
+                                        <img src="ICONS/align-to-right.png"></button>
+                        </article>
+                        <article class="txt-color">
+                            <input class="hidden-input" type="color" value="#ffffff" onchange="onChangeColor(value)">
+                        </article>
+                        <article class="storke-txt">
+                            <input class="hidden-input" type="color" value="#ffffff" name="" id="" onchange="onStrokeText(value)">
+                        </article>
 
-                        <!-- <ul class=" clean-ul">
-                            <!-- <li><button class="increase" onclick=onSetFontSize(5)><img src="ICONS/increase font - icon.png"></button></li> -->
-                            <!-- <li><button class="increase" onclick=onSetFontSize(-5)><img src="ICONS/increase font - icon.png"></button></li>
-                            <li><textarea id="top-text"></textarea></li>
-                            <li><textarea id="bottom-text"></textarea></li>
-                            <li><button>Delete</button></li>
-                            <li><button>Text move up</button></li>
-                            <li><button>Text move down</button></li>
-                            <li><button>chenge up to down</button></li>
-                            <li><button onclick="onGenerate()">ganrate</button></li>
-                        </ul> --> -->
+                        <article class="font-Change">
+                            <select onchange="onChangeFont(this)">
+                                <option value="Impact">Impact</option>
+                                <option value="Arial">Arial</option>
+                                <option value="fantasy">fantasy</option>
+                                <option value="Times">Times</option>
+                            </select>
+                        </article>
 
-                    </div>
-                    <div class="btn-container-main">
-                        <!-- <input type="color" value="#ffffff" onchange="onSetColor(value)"> -->
-                    </div>
-                    <div class="btn-container-sticker">
-                        <!-- <button>Sticker</button> -->
-                    </div>
-                    <div class="btn-container-footer flex "> >
-                        <!-- <button>Download</button>
-                        <button>Share</button> -->
-                    </div>
-                </div>
-            </div>
+                        <article class="download">
+                            <a href="#" class="btn-download" onclick="onDownloadImg(this)"
+                                download="my-img.jpg">Download</a>
+                        </article>
         </section>
     </main>
 
-    <footer class="footer">
-        <div>memegen</div>
-        <small>all rights reserved 2021</small>
+    <footer class="main-footer">
+        <div class="bgc-footer ">
+            <div class="footer-txt flex center direction-column">
+                <img src="images/LOGO/LOGO.png">
+                <small>all rights reserved to A.D.A 2021</small>
+            </div>
+        </div>
     </footer>
-
 
     <script src="js/storage-service.js"></script>
     <script src="js/utils.js"></script>

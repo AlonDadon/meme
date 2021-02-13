@@ -33,6 +33,7 @@ var gMeme = {
             color: 'white',
             moveLine: 16,
             strokeTxt: 'black',
+            font: "Impact"
         },
         {
             txtPosX: 2,
@@ -42,6 +43,7 @@ var gMeme = {
             color: 'red',
             moveLine: 16,
             strokeTxt: 'black',
+            font: "Impact"
         }
     ]
 }
@@ -94,7 +96,6 @@ function addLine() {
     gMeme.lines[idx].txt = 'Add text'
     generateMeme()
     drawImage()
-
 }
 function deleteLine() {
     let idx = gMeme.selectedLineIdx
@@ -126,6 +127,12 @@ function moveXPos(pos) {
     if (pos === 'center') gMeme.lines[idx].txtPosX = 2
     if (pos === 'right') gMeme.lines[idx].txtPosX = 1.2
     if (pos === 'left') gMeme.lines[idx].txtPosX = 6
+    generateMeme()
+    drawImage()
+}
+function  changeFont(font){
+    let idx = gMeme.selectedLineIdx
+    gMeme.lines[idx].font = font;
     generateMeme()
     drawImage()
 }
